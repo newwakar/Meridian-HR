@@ -1,0 +1,9 @@
+Options -Indexes
+
+<IfModule mod_authz_core.c>
+    <FilesMatch "^(config\.php)$">
+        # config.php only defines constants/functions (no output), so direct
+        # access is harmless either way, but this keeps it out of reach too.
+        Require all denied
+    </FilesMatch>
+</IfModule>
